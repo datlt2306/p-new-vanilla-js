@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "name": "Practical Frozen Gloves",
+      "img": "http://placeimg.com/640/480/nightlife",
+      "price": "714.00",
+      "id": "7"
+    },
+    {
+      "name": "Ergonomic Soft Soap",
+      "img": "http://placeimg.com/640/480/business",
+      "price": "218.00",
+      "id": "8"
+    }
+  ],
+  "users": []
+}
