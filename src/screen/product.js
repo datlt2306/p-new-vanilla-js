@@ -1,28 +1,30 @@
-import { render, html } from "uhtml";
 import { getAll, remove } from "../api/product";
 /* eslint-disable no-undef */
-const ProductApp = () => {
+const ProductPage = () => {
     const state = {
         products: []
     };
     const getProduct = async () => {
         state.products = await getAll();
     };
-    const removeProduct = async (id) => {
+    window.removeProduct = async (id) => {
         state.products = await remove(id);
-        reRender();
+        render();
     };
-    const template = (s) => {
-        return html`<table>
-                        <tbody> ${s.products.map(({ name, id }) => {
-            return html`<tr><td>${name}<button onclick="${() => removeProduct(id)}">Remove</button></td></tr>`;
-        })}</tbody>
-                    </table>`;
+    const template = ({ products }) => {
+        return `<table><tbody> 
+            ${products.map(({ name, id }) => {
+            return `<tr>
+                        <td>${name}<button onclick="removeProduct(${id})">Remove</button>
+                        </td>
+                    </tr>`;
+        }).join("")}
+        </tbody></table>`;
     };
-    const reRender = async () => {
+    const render = async () => {
         await getProduct();
-        await render(app, template(state));
+        document.getElementById("app").innerHTML = template(state);
     };
-    return { reRender };
+    return { render };
 };
-export default ProductApp;
+export default ProductPage;

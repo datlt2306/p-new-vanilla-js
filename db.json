@@ -1,16 +1,18 @@
 {
   "products": [
     {
-      "name": "Practical Frozen Gloves",
-      "img": "http://placeimg.com/640/480/nightlife",
-      "price": "714.00",
-      "id": "7"
+      "name": "MAPEX 1",
+      "img": "234",
+      "price": "232",
+      "id": "1",
+      "status": false
     },
     {
-      "name": "Ergonomic Soft Soap",
-      "img": "http://placeimg.com/640/480/business",
-      "price": "218.00",
-      "id": "8"
+      "name": "MAPEX 2",
+      "img": "mapex2.jpg",
+      "price": "2000",
+      "id": "2",
+      "status": false
     }
   ],
   "users": []

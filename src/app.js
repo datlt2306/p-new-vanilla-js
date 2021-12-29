@@ -1,19 +1,20 @@
 import Navigo from "navigo";
 import AboutPage from "./screen/about";
-import ProductApp from "./screen/product";
+import HomePage from "./screen/home";
+import ProductPage from "./screen/product";
 const router = new Navigo("/", { linksSelector: "a" });
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
     router
         .on({
             "/": () => {
-                console.log("Home Page");
+                HomePage().render();
             },
             "/about": () => {
-                AboutPage().reRender();
+                AboutPage().render();
             },
-            "/products": () => {
-                ProductApp().reRender();
+            "/products": async () => {
+                ProductPage().render();
             },
         })
         .resolve();

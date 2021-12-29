@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "eslint": "^8.5.0",
+    "sass": "^1.45.1",
     "vite": "^2.7.2"
   },
   "dependencies": {
