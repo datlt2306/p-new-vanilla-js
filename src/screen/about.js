@@ -5,7 +5,7 @@ const AboutPage = () => {
         document.getElementById("app").innerHTML = template();
     };
 
-    return { render };
+    return render();
 
 };
 export default AboutPage;

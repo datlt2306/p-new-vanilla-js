@@ -1,30 +1,35 @@
-import { getAll, remove } from "../api/product";
+// import { getAll, remove } from "../api/product";
+import data from "../../data";
 /* eslint-disable no-undef */
 const ProductPage = () => {
     const state = {
-        products: []
+        products: data
     };
-    const getProduct = async () => {
-        state.products = await getAll();
-    };
+    // const getProduct = async () => {
+    //     state.products = await getAll();
+    // };
     window.removeProduct = async (id) => {
-        state.products = await remove(id);
+        const newProducts = state.products.filter(item => item.id !== id);
+        state.products = newProducts;
+        // state.products = await remove(id);
         render();
     };
     const template = ({ products }) => {
         return `<table><tbody> 
             ${products.map(({ name, id }) => {
             return `<tr>
-                        <td>${name}<button onclick="removeProduct(${id})">Remove</button>
+                        <td>
+                            <a href="/product/${id}">${name}</a>
+                            <button onclick="removeProduct(${id})">Remove</button>
                         </td>
                     </tr>`;
         }).join("")}
         </tbody></table>`;
     };
     const render = async () => {
-        await getProduct();
+        // await getProduct();
         document.getElementById("app").innerHTML = template(state);
     };
-    return { render };
+    return render();
 };
 export default ProductPage;

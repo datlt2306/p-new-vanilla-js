@@ -5,7 +5,7 @@ const HomePage = () => {
         document.getElementById("app").innerHTML = template();
     };
 
-    return { render };
+    return render();
 
 };
 export default HomePage;
