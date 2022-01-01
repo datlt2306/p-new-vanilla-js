@@ -1,16 +1,17 @@
 /* eslint-env node */
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    env: {
+        browser: true,
+        es2021: true,
     },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 13,
-        "sourceType": "module"
+    extends: "airbnb-base",
+    parserOptions: {
+        ecmaVersion: 13,
+        sourceType: "module",
     },
-    "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
-    }
+    rules: {
+        semi: ["error", "always"],
+        quotes: ["error", "double", { allowTemplateLiterals: true }],
+        indent: ["error", 4],
+    },
 };

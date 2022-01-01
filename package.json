@@ -8,12 +8,13 @@
   },
   "devDependencies": {
     "eslint": "^8.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
     "sass": "^1.45.1",
     "vite": "^2.7.2"
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "navigo": "^8.11.1",
-    "uhtml": "^2.8.0"
+    "navigo": "^8.11.1"
   }
 }

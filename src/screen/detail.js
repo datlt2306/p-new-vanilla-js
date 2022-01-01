@@ -1,19 +1,21 @@
-import data from "../../data";
+// import data from "../../data";
+
+import { get } from "../api/product";
+
 const ProductDetail = ({ id }) => {
     const state = {
-        product: {}
+        product: {},
     };
 
-    const getProduct = () => {
-        const result = data.find(item => item.id == id);
-        state.product = result;
+    const getProduct = async () => {
+        // const result = data.find((item) => item.id === id);
+        // state.product = result;
+        state.product = await get(id);
     };
 
-    const template = ({ product }) => {
-        return `<div>${product.name}</div>`;
-    };
-    const render = () => {
-        getProduct();
+    const template = ({ product }) => `<div> ${product.name}<button>Add to cart</button></div>`;
+    const render = async () => {
+        await getProduct();
         document.getElementById("app").innerHTML = template(state);
     };
     return render();
