@@ -7,15 +7,13 @@ import ProductPage from "./screen/product";
 const router = new Navigo("/", { linksSelector: "a" });
 
 window.addEventListener("DOMContentLoaded", () => {
-    router.on("admin/*", () => { }, {
-        before(done) {
-            if (localStorage.getItem("admin")) {
-                router.navigate("about");
-            } else {
-                done();
-            }
-        },
-    });
+    // router.on("admin/*", () => { }, {
+    //     before(done) {
+    //         if (localStorage.getItem("admin")) {
+    //         } else {
+    //         }
+    //     },
+    // });
     router.on({
         "/": () => {
             HomePage();
