@@ -1,33 +1,32 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-undef */
-
-// import { getAll, remove } from "../api/product";
-import data from "../../data";
+import ProductList from "../components/products";
 
 const ProductPage = () => {
     const state = {
-        products: data,
+        products: [{
+            id: 1,
+            name: "Product A",
+        }, {
+            id: 2,
+            name: "Product B",
+        }, {
+            id: 3,
+            name: "Product C",
+        }],
     };
-    // const getProduct = async () => {
-    //     state.products = await getAll();
-    // };
-    window.removeProduct = async (id) => {
-        const newProducts = state.products.filter((item) => item.id !== id);
-        state.products = newProducts;
-        // state.products = await remove(id);
+    window.removeItem = (id) => {
+        state.products = state.products.filter((item) => item.id !== id);
+        // eslint-disable-next-line no-use-before-define
         render();
     };
-    const template = ({ products }) => `<table><tbody> 
-            ${products.map(({ name, id }) => `<tr>
-                        <td>
-                            <a href="/product/${id}">${name}</a>
-                            <button onclick="removeProduct(${id})">Remove</button>
-                        </td>
-                    </tr>`).join("")}
-        </tbody></table>`;
-    const render = async () => {
-        // await getProduct();
-        document.getElementById("app").innerHTML = template(state);
+    const template = () => `
+        <h1>Product Page</h1>
+        <div>
+            <div>ABC</div>
+            ${ProductList()}
+        </div>
+    `;
+    const render = () => {
+        document.querySelector("#app").innerHTML = template(state);
     };
     return render();
 };

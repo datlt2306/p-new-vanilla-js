@@ -4,8 +4,6 @@ const AboutPage = () => {
     const render = () => {
         document.getElementById("app").innerHTML = template();
     };
-
     return render();
-
 };
 export default AboutPage;
